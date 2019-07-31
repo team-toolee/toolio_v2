@@ -56,29 +56,10 @@ public class UserController {
         m.addAttribute("principal", user);
         return "profile";
     }
-
-    @GetMapping("/discover")
-    public String getToolsForprincipalCity(Model m, Principal p){
-        AppUser loggedInUser = userRepository.findByUsername(p.getName());
-        String userCity = loggedInUser.getCity();
-        List<AppUser> usersInCity = userRepository.findByCity(userCity);
-        List<Tool> toolsInCity = new ArrayList<>();
-
-        for(AppUser user: usersInCity){
-            for(Tool tool: user.getTools()){
-                toolsInCity.add(tool);
-            }
-        }
-
-        m.addAttribute("toolsInCity", toolsInCity);
-        m.addAttribute("principal", p);
-
-        return "discover";
-    }
     /*
     Testing to implement ajax feature: search based on categories
      */
-    @GetMapping("/diss")
+    @GetMapping("/discover")
     public String testing(Model m, Principal p){
         AppUser loggedInUser = userRepository.findByUsername(p.getName());
         List<AppUser> usersInCity = userRepository.findByCity(loggedInUser.getCity());
@@ -93,25 +74,23 @@ public class UserController {
         }
 
         m.addAttribute("toolsInCity", toolsInCity);
-        m.addAttribute("principle", loggedInUser);
+        m.addAttribute("principal", loggedInUser);
         /*
         Add following for ajax search feature
          */
         Category[] categories = Category.values();
         m.addAttribute("categories",categories);
-        return "dis";
+        return "discover";
     }
 
-    @GetMapping("/contact/seller/{toolId}/")
-    public String contactToolSeller(@PathVariable long sellerId, @PathVariable long toolId, Principal p, Model m){
+    @GetMapping("/contact/seller/{toolId}")
+    public String contactToolSeller(@PathVariable long toolId, Principal p, Model m){
         AppUser loggedInUser = userRepository.findByUsername(p.getName());
         Tool selectedTool = toolRepository.findById(toolId).get();
         m.addAttribute("tool",selectedTool);
-        m.addAttribute("principle",loggedInUser);
+        m.addAttribute("principal",loggedInUser);
         return "contactSeller";
     }
-
-
 
     @PostMapping("/contact/seller/{toolId}")
     public String contactToolSeller(@PathVariable Long toolId, @RequestParam String message, Model m, Principal p){

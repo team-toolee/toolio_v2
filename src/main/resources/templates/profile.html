@@ -97,7 +97,7 @@
                 <div class="col s6">
                     <label>Tool Category</label>
                     <select class="browser-default" name="category">
-                        <option value="" disabled selected>Choose your status</option>
+                        <option value="" disabled selected>Choose your category</option>
                         <option th:each ="category: ${categories}" th:text="${category.getCategoryName()}" th:value="${category.getCategoryName()}"></option>
                     </select>
                 </div>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="UTF-8">
+        <title>Delete Tool</title>
+        <link href="/css/main.css" rel="stylesheet" />
+        <!--Let browser know website is optimized for mobile-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link type="text/css" rel="stylesheet"
+              th:href="@{https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css}"
+              href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"  media="screen,projection"/>
+    </head>
+    <body>
+        <div th:replace="fragments/header :: header"></div>
+        <h3>Are you sure want to delete following tool ?</h3>
+        <form action="/tool/{id}/delete" method="post">
+            <!--to pass the input across the past page-->
+            <input th:value="${delTool.id}" type="hidden" name="id" >
+            <div class="form-group">
+                <label for="toolName">Tool Name</label>
+                <input type="text" th:value="${delTool.name}"  class= "form-control" name="name" id="toolName" readonly>
+            </div>
+            <div class="form-group">
+                <label for="toolImg">Tool Image</label>
+                <img id="toolImg" class="card-img-top" th:src="${delTool.imageUrl}" alt="Card image" readonly>
+            </div>
+            <div class="form-group">
+                <label for="toolPrice">Price</label>
+                <input type="text" th:value="${delTool.price}"  class= "form-control" name="name" id="toolPrice" readonly>
+            </div>
+            <div class="form-group">
+                <label for="toolStatus">Status</label>
+                <input type="text" th:value="${delTool.status}"  class= "form-control" name="name" id="toolStatus" readonly>
+            </div>
+            <div class="form-group">
+                <label for="toolDescription">Description</label>
+                <input type="text" th:value="${delTool.description}"  class= "form-control" name="name" id="toolDescription" readonly>
+            </div>
+            <div class="form-group">
+                <label for="toolCategory">Category</label>
+                <input type="text" th:value="${delTool.category.getCategoryName()}"  class= "form-control" name="name" id="toolCategory" readonly>
+            </div>
+            <button type="submit" class="btn btn-danger"> Delete </button>
+        </form>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <script type="text/javascript" src="/javascript/style.js"></script>
+    </body>
+</html>

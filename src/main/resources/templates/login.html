@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <!--<link href="/css/main.css" rel="stylesheet" />-->
+    <link href="/css/login.css" rel="stylesheet" />
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link type="text/css" rel="stylesheet"
+          th:href="@{https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css}"
+          href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"  media="screen,projection"/>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous">
+    <!--<link href="/main.css" rel="stylesheet" />-->
+</head>
+<body>
+<!--<div th:replace="fragments/header :: header"></div>-->
+<body>
+
+<div class="hero-image">
+    <div class="hero-text">
+        <h1 style="font-size:50px">Toolio</h1>
+        <h3>Your neighborhood tool exchange</h3>
+            <p>Toolio lets you to rent different hardware tools that are made avialable by </br>
+                thousands of Toolio users just like yourself.</p>
+            <!--<p> Renting tools is as easy as clicking a couple of buttons.</p>-->
+            <!--<p>If you want to rent out tools, you can do that too with just a click of a button.</p>-->
+            <!--<p>If you are already a member please sign in and maximize the benifits of our app.</p>-->
+            <!--<p>If you're not a member yet, please sign up to become a member and start using all the tools that our app has to offer</p>-->
+
+    </div>
+</div>
+
+<div class="form">
+
+    <ul class="tab-group">
+        <li class="tab active"><a href="#signup">Sign Up</a></li>
+        <li class="tab"><a href="#login">Log In</a></li>
+    </ul>
+
+    <div class="tab-content">
+        <div id="signup">
+            <h1>Sign Up for Free</h1>
+
+            <form action="/register" method="post">
+
+                <div class="top-row">
+                    <div class="field-wrap">
+                        <label>
+                            User Name<span class="req">*</span>
+                        </label>
+                        <input type="text" name="username" required autocomplete="off" />
+                    </div>
+
+                    <div class="field-wrap">
+                        <label>
+                            PassWord<span class="req">*</span>
+                        </label>
+                        <input id="password" type="password" name="password"required autocomplete="off"/>
+                    </div>
+                </div>
+
+                <div class="field-wrap">
+                    <label>
+                        Email Address<span class="req">*</span>
+                    </label>
+                    <input type="email" id="email" name="email" autocomplete="off"/>
+                </div>
+
+                <div class="field-wrap">
+                    <label>
+                        Phone Number<span class="req">*</span>
+                    </label>
+                    <input id="phone" type="number" name="phoneNumber" required autocomplete="off"/>
+                </div>
+
+                <div class="field-wrap">
+                    <div th:if="${cities != null}">
+                        <select class= "form-control" name="city" for="city" placeholder="Select the city" required>
+                            <option id="city" th:each="city : ${cities}" th:value="${city}" th:text="${city}"></option>
+                        </select>
+                    </div>
+                </div>
+
+                <button type="submit" class="button button-block"/>Sign Up</button>
+
+            </form>
+
+        </div>
+
+        <div id="login">
+            <h1>Welcome Back!</h1>
+
+            <form method="POST" action="/login">
+
+                <div class="field-wrap">
+                    <label>
+                        User Name<span class="req">*</span>
+                    </label>
+                    <input type="text" name="username" required autocomplete="off"/>
+                </div>
+
+                <div class="field-wrap">
+                    <label>
+                        Password<span class="req">*</span>
+                    </label>
+                    <input type="password" name="password" required autocomplete="off"/>
+                </div>
+
+                <!--<p class="forgot"><a href="#">Forgot Password?</a></p>-->
+
+                <button class="button button-block"/>Log In</button>
+
+            </form>
+
+        </div>
+
+    </div><!-- tab-content -->
+
+</div> <!-- /form -->
+
+</body>
+
+<!--<div th:replace="fragments/footer :: footer"></div>-->
+<script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script type="text/javascript" src="/javascript/style.js"></script>
+<script type="text/javascript" src="/javascript/login.js"></script>
+<script>
+        function checkPasswordMatch() {
+            var password = $("#password").val();
+            var confirmPassword = $("#conformPassword").val();
+
+            if (password != confirmPassword)
+            {
+                $("#checkPasswordMatch").html("Passwords do not match!").css('color', 'red');
+                $('#submit').prop('disabled', true);
+            }
+            else
+            {
+             $("#checkPasswordMatch").html("Passwords match.").css('color', 'green');
+            $('#submit').prop('disabled', false);
+            }
+        }
+
+        $(document).ready(function () {
+            $("#password, #conformPassword").keyup(checkPasswordMatch);
+        });
+    </script>
+</body>
+</html>

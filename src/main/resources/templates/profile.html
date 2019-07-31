@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link href="/css/main.css" rel="stylesheet" />
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link type="text/css" rel="stylesheet"
+          th:href="@{https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css}"
+          href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"  media="screen,projection"/>
+</head>
+<body>
+<div th:replace="fragments/header :: header"></div>
+<div class="row">
+    <div class="col s12 m3 l3">
+        <section id="detailpage" class="footerfix">
+            <header class="site-header">
+                <h4>User Profile</h4>
+            </header>
+            <fieldset class="form__fields"id="page-info">
+
+                <article class="field">
+                    <div th:if="${principal}">
+                        <p>Username: </br><span th:text="${principal.username}" class="cardText"></span></p>
+                        <p>Email   : </br><span th:text="${principal.email}" class="cardText"></span></p>
+                        <p>Phone   : </br><span th:text="${principal.phoneNumber}" class="cardText"></span></p>
+                        <p>City    : </br><span th:text="${principal.city}" class="cardText"></span></p>
+                        <a class="waves-effect waves-light btn modal-trigger" href="#modal2">Add New tool</a>
+                    </div>
+                </article>
+            </fieldset>
+        </section>
+    </div>
+
+    <div class="col s12 m9 l9">
+        <header class="site-header">
+            <h4>Your Tools</h4>
+        </header>
+        <div class="row">
+            <div th:each="tool : ${principal.tools}">
+                <div class="col s12 m4">
+                    <div class="card">
+                        <div class="card-image">
+                            <img th:src="${tool.imageUrl}" alt="Card image">
+                            <span class="card-title"><span th:text="${tool.name}"></span></span>
+                            <a th:href="@{'/tool/' + ${tool.id} + '/edit'}" class="btn-floating halfway-fab waves-effect waves-light red">
+                                <i class="material-icons">edit</i></a>
+                        </div>
+                        <div class="card-content">
+                            <p>Description: </br><span th:text="${tool.description}" class="cardText"></span></p>
+                            <p>Status: </br><span th:text="${tool.status}" class="cardText"></span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<div id="modal2" class="modal">
+    <div class="modal-content">
+
+        <form id ="newTool" method="POST" action="/tool/add" enctype="multipart/form-data">
+            <div class='row'>
+                <div class='input-field col s8'>
+                    <label for="toolName">Tool Name</label>
+                    <input type="text" placeholder="Tool Name"  class= "form-control" name="name" id="toolName" required>
+                </div>
+                <div class='col s4'>
+                    <label for="toolImg">Tool Image</label>
+                    <input type="file" class= "form-control" name="file" id="toolImg" required>
+                </div>
+            </div>
+
+            <div class='row'>
+                <div class='input-field col s6'>
+                    <label for="toolDescription">Description</label>
+                    <input type="text" placeholder="Description"  class= "form-control" name="description" id="toolDescription" required>
+                </div>
+                <div class='input-field col s6'>
+                    <label for="toolPrice">Price</label>
+                    <input type="number" placeholder="$" class= "form-control" name="price" id="toolPrice" required>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col s6">
+                    <label>Status</label>
+                    <select class="browser-default" name="status">
+                        <option value="" disabled selected>Choose your status</option>
+                        <option th:each ="state: ${status}" th:text="${state}" th:value="${state}"></option>
+                    </select>
+                </div>
+                <div class="col s6">
+                    <label>Tool Category</label>
+                    <select class="browser-default" name="category">
+                        <option value="" disabled selected>Choose your status</option>
+                        <option th:each ="category: ${categories}" th:text="${category.getCategoryName()}" th:value="${category.getCategoryName()}"></option>
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
+<!--JavaScript at end of body for optimized loading-->
+<script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script type="text/javascript" src="/javascript/style.js"></script>
+</body>
+</html>

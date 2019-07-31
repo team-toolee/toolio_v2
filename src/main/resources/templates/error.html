@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="UTF-8">
+        <title>Error</title>
+
+    </head>
+
+    <body>
+
+
+    <h1>Error!</h1>
+    <table>
+
+        <thead>
+        <tr>
+            <th>Path</th>
+            <th>Error</th>
+            <th>Status</th>
+            <th>Message</th>
+        </tr>
+        </thead>
+
+        <tr>
+            <td th:text="${path}"/>
+            <td th:text="${error}"/>
+            <td th:text="${status}"/>
+            <td th:text="${message}"/>
+        </tr>
+    </table>
+    </body>
+
+</html>
+
+
+<!--//Reference: https://github.com/codefellows/seattle-java-401d4/blob/master/class-16/demo/dinosaurs/src/main/resources/templates/error.html-->
+<!--https://raw.githubusercontent.com/team-char/pet-expenses-tracker/develop/src/main/resources/templates/error.html-->

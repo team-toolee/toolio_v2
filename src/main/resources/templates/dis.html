@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link href="/css/main.css" rel="stylesheet" />
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link type="text/css" rel="stylesheet"
+          th:href="@{https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css}"
+          href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"  media="screen,projection"/>
+</head>
+<body>
+<div th:replace="fragments/header :: header"></div>
+
+<section id="alltickets" class="footerfix">
+    <div class="row">
+        <div class="col s12 m2 l2">
+            <label>Tool Category</label>
+            <select id="category"class="browser-default" name="category">
+                <option th:each ="category: ${categories}" th:text="${category.getCategoryName()}" th:value="${category.getCategoryName()}"></option>
+            </select>
+        </div>
+
+        <div  class="col s12 m8 l8">
+            <!--List of tools-->
+            <div  class="row">
+                <div class="col s12 m8 l8">
+                    <header class="site-header">
+                        <h4>Discover Tools</h4>
+                    </header>
+                    <div th:each="tool : ${toolsInCity}">
+                        <div class="row">
+                            <div class="col s12 m4">
+                                <div id="allTools" class="card" th:target="${tool.category.getCategoryName()}">
+                                    <div class="card-image">
+                                        <img th:src="${tool.imageUrl}" alt="Card image">
+                                    </div>
+                                    <div class="card-content">
+                                        <p class="card-title"><span th:text="${tool.name}"></span></p>
+                                        <p th:text="${tool.description}"></p>
+                                        <p th:text="${tool.status}"></p>
+                                        <p>Category: <span id="toolCategory" th:text="${tool.category.getCategoryName()}"></span></p>
+                                    </div>
+                                        <a class="waves-effect waves-light btn modal-trigger" th:href="'/contact/seller'+'/${tool.id}'">Contact User</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div th:replace="fragments/footer :: footer"></div>
+<!--JavaScript at end of body for optimized loading-->
+<script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script type="text/javascript" src="/javascript/style.js"></script>
+<script>
+$(document).ready(function(){
+  $("#category").change(function() {
+    $(".card").filter(function(){
+        $(this).show();
+    });
+    var value = $(this).val();
+    $(".card").filter(function(){
+        if($(this).attr('target')!==value){
+            $(this).hide();
+        }
+    });
+  });
+});
+</script>
+</body>
+</html>

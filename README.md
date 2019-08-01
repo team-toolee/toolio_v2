@@ -42,7 +42,7 @@
 #spring.datasource.url=${DATABASE_URL}
 #spring.datasource.username=${DATABASE_USERNAME}
 #spring.datasource.password=${DATABASE_PASSWORD}
-#jdbc:postgresql://tooliodb.cblm1jyojdsg.us-east-2.rds.amazonaws.com/tooliodb
+
 spring.datasource.url=jdbc:postgresql://localhost:5432/tooliodb
 spring.jpa.properties.hibernate.jdbc.lob.non_contextual_creation=true
 amazon.aws.accesskey.s3=${S3_ACCESS_KEY}

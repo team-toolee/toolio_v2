@@ -74,7 +74,8 @@ public class HomeController {
     }
 
     @GetMapping("/aboutus")
-    public String aboutUsHandler(){
+    public String aboutUsHandler(Model m, Principal p){
+        m.addAttribute("principal", p);
         return "aboutUs";
     }
 

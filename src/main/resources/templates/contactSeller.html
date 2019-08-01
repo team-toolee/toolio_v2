@@ -30,7 +30,7 @@
                 <input type="text" th:value="${tool.price}"  class= "form-control" name="price" id="toolPrice" readonly>
             </div>
             <div class="form-group">
-                <label for="toolImg">Tool Image</label>
+                <label for="toolImg"></label>
                 <img id="toolImg" class="card-img-top" th:src="${tool.imageUrl}" alt="Card image" readonly>
             </div>
             <div class="form-group">
@@ -42,13 +42,14 @@
                 <input type="text" th:value="${tool.description}"  class= "form-control" name="description" id="toolDescription" readonly>
             </div>
             <div class="form-group">
-                <label for="buyerMessage">Message to Seller</label>
+                <label for="buyerMessage">Message to Owner</label>
                 <input type="text"  class= "form-control" name="message" id="buyerMessage">
             </div>
-            <button type="submit" class="btn btn-primary"> Sent </button>
+            <button type="submit" class="btn btn-primary"> Send </button>
         </form>
     </div>
 </div>
+<div th:replace="fragments/footer :: footer"></div>
 <script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <script type="text/javascript" src="/javascript/style.js"></script>

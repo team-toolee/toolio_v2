@@ -93,7 +93,7 @@ spring.jpa.hibernate.ddl-auto=update
 * Spring Boot
 * Thymeleaf
 * Amazon AWS
-* BootStrap
+* Materialize
 
 ## Versions
 > Version 1.0 - Setup repo and added planning files.

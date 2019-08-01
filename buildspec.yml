@@ -14,7 +14,7 @@ phases:
       - ./gradlew bootJar
 artifacts:
   type: zip
-  files
+  files:
     - 'build/libs/*.jar'
   name: build/libs/application.jar
   discard-paths: yes

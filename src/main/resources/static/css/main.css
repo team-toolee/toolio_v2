@@ -81,3 +81,39 @@ footer {
     margin-top: 2px;
     margin-left: 10px;
 }
+
+/* about us page
+Referenced from: https://github.com/chidrome/recipes-client-side/blob/master/src/scss/_module.scss
+*/
+
+.aboutUs{
+text-align: center;
+}
+
+.aboutUsDiv{
+  display: flex;
+  width: 80%;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  margin: 0 auto;
+  }
+
+  .aboutSaurav .aboutKishor .aboutWilliams .aboutSudip .aboutDoug{
+    width: 30%;
+  }
+
+   .sauravPara, .kishorPara, .sudipPara, .williamsPara, .dougPara{
+    width: 500px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+  }
+
+  .ourImage {
+    width: 400px;
+    height: 400px;
+    border-radius: 200px;
+  }
+
+   #williamsImage{
+    transform: rotate(90deg);
+   }

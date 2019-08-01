@@ -14,41 +14,44 @@
 <body>
 <div th:replace="fragments/header :: header"></div>
 
-<div class="row">
-    <div class="col s11 m8 l8">
-        <h3>Contact Seller</h3>
-        <form th:action="'/contact/seller/'+${tool.id}" method="POST">
-            <!--<input name="toolId" th:value="${tool.id}" hidden>-->
-            <!--&lt;!&ndash;to pass the input across the past page&ndash;&gt;-->
+<div class="container row">
+    <div class="col s12 m6 l6">
+        <header class="site-header">
+            <h3>Contact Seller</h3>
+        </header>
+        <fieldset>
+            <form th:action="'/contact/seller/'+${tool.id}" method="POST">
 
-            <div class="form-group">
-                <label for="toolName">Tool Name</label>
-                <input type="text" th:value="${tool.name}"  class= "form-control" name="name" id="toolName" readonly>
-            </div>
-            <div class="form-group">
-                <label for="toolPrice">Price</label>
-                <input type="text" th:value="${tool.price}"  class= "form-control" name="price" id="toolPrice" readonly>
-            </div>
-            <div class="form-group">
-                <label for="toolImg">Tool Image</label>
-                <img id="toolImg" class="card-img-top" th:src="${tool.imageUrl}" alt="Card image" readonly>
-            </div>
-            <div class="form-group">
-                <label for="toolStatus">Status</label>
-                <input type="text" th:value="${tool.status}"  class= "form-control" name="price" id="toolStatus" readonly>
-            </div>
-            <div class="form-group">
-                <label for="toolDescription">Description</label>
-                <input type="text" th:value="${tool.description}"  class= "form-control" name="description" id="toolDescription" readonly>
-            </div>
-            <div class="form-group">
-                <label for="buyerMessage">Message to Seller</label>
-                <input type="text"  class= "form-control" name="message" id="buyerMessage">
-            </div>
-            <button type="submit" class="btn btn-primary"> Sent </button>
-        </form>
+                <div class="form-group">
+                    <label for="toolName">Tool Name</label>
+                    <input type="text" th:value="${tool.name}"  class= "form-control" name="name" id="toolName" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="toolPrice">Price</label>
+                    <input type="text" th:value="${tool.price}"  class= "form-control" name="price" id="toolPrice" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="toolImg"></label>
+                    <img id="toolImg" class="card-img-top" th:src="${tool.imageUrl}" alt="Card image" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="toolStatus">Status</label>
+                    <input type="text" th:value="${tool.status}"  class= "form-control" name="price" id="toolStatus" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="toolDescription">Description</label>
+                    <input type="text" th:value="${tool.description}"  class= "form-control" name="description" id="toolDescription" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="buyerMessage">Message to Owner</label>
+                    <input type="text"  class= "form-control" name="message" id="buyerMessage">
+                </div>
+                <button type="submit" class="btn btn-primary"> Send </button>
+            </form>
+        </fieldset>
     </div>
 </div>
+<div th:replace="fragments/footer :: footer"></div>
 <script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <script type="text/javascript" src="/javascript/style.js"></script>

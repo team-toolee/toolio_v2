@@ -68,3 +68,35 @@ footer {
     font-size: 20px;
     color: #9b9b9b;
 }
+
+.userProfile{
+   color:white;
+   font-size: 2rem;
+   background: rgba(19, 35, 47, 0.9);
+    padding: 40px;
+    max-width: 25rem;
+    margin-top: 1.5rem;
+    box-shadow: 0 4px 10px 4px rgba(19, 35, 47, 0.3);
+
+}
+
+.cardImg img{
+    height: 20rem;
+    width: 25rem;
+}
+
+.discoverFilters{
+   color:white;
+   font-size: 2rem;
+   background: rgba(19, 35, 47, 0.9);
+    padding: 40px;
+    max-width: 65rem;
+    margin-top: 1.5rem;
+    box-shadow: 0 4px 10px 4px rgba(19, 35, 47, 0.3);
+}
+
+.cardBtn a{
+      text-align: center;
+      display: block;/**Added This**/
+      margin: 0 auto; /**Added This**/
+}

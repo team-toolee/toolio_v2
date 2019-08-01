@@ -10,11 +10,11 @@ phases:
   build:
     commands:
       - echo Build started on `date`
-      - ./gradlew build
+      #- ./gradlew build
       - ./gradlew bootJar
 artifacts:
   type: zip
-  files:
+  files
     - 'build/libs/*.jar'
   name: build/libs/application.jar
   discard-paths: yes

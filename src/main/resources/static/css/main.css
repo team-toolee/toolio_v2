@@ -58,6 +58,12 @@ footer {
     background-color: #232f3e !important;
 }
 
+.footerContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
 .footerfix {
     min-height: calc(100vh - 140px)
 }
@@ -67,4 +73,11 @@ footer {
     font-weight: 400;
     font-size: 20px;
     color: #9b9b9b;
+}
+
+.logoImage{
+    height: 60px;
+    width: 60px;
+    margin-top: 2px;
+    margin-left: 10px;
 }

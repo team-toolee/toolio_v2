@@ -44,6 +44,8 @@ public class UserController {
     @Autowired
     PasswordEncoder passwordEncoder;
 
+    public String[] cities = {"All","Seattle", "Spokane","Tacoma", "Vancouver","Bellevue", "Kent", "Everett", "Renton", "Federal Way", "Kirkland",
+            "Auburn", "Shoreline"};
 
 
     @GetMapping("/profile")
@@ -80,6 +82,40 @@ public class UserController {
          */
         Category[] categories = Category.values();
         m.addAttribute("categories",categories);
+
+        m.addAttribute("cities",cities);
+        return "discover";
+    }
+
+    @PostMapping("/discover")
+    public String testing(Model m, Principal p, @RequestParam String city){
+        AppUser loggedInUser = userRepository.findByUsername(p.getName());
+        List<AppUser> usersInCity;
+        if(city.equals("All")){
+            usersInCity = (List)userRepository.findAll();
+        }
+        else{
+            usersInCity= userRepository.findByCity(city);
+        }
+
+        List<Tool> toolsInCity = new ArrayList<>();
+
+        for(AppUser user: usersInCity){
+            if(!user.getUsername().equals(loggedInUser.getUsername())){
+                for(Tool tool: user.getTools()){
+                    toolsInCity.add(tool);
+                }
+            }
+        }
+
+        m.addAttribute("toolsInCity", toolsInCity);
+        m.addAttribute("principal", loggedInUser);
+        /*
+        Add following for ajax search feature
+         */
+        Category[] categories = Category.values();
+        m.addAttribute("categories",categories);
+        m.addAttribute("cities",cities);
         return "discover";
     }
 

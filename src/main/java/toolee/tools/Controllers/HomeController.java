@@ -46,7 +46,7 @@ public class HomeController {
 //     Testing main page on main route, modify as needed
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String index() {
-        return "home";
+        return "login";
     }
 
     @GetMapping("/register")
@@ -74,7 +74,8 @@ public class HomeController {
     }
 
     @GetMapping("/aboutus")
-    public String aboutUsHandler(){
+    public String aboutUsHandler(Model m, Principal p){
+        m.addAttribute("principal", p);
         return "aboutUs";
     }
 

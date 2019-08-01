@@ -54,14 +54,39 @@ public class HomeControllerTest {
     @WithMockUser
     @Test
     public void testLogin() throws Exception{
-        mockMvc.perform(get("/login").with(testUser())).andExpect(content().string(containsString("Discover")));
+        mockMvc.perform(get("/login").with(testUser())).andExpect(content().string(containsString("Toolio")));
 
 
     }
     @WithMockUser
     @Test
     public void testhome() throws Exception{
-        mockMvc.perform(get("/home").with(testUser())).andExpect(content().string(containsString("Hello, wosunkwo")));
+        mockMvc.perform(get("/profile").with(testUser())).andExpect(content().string(containsString("Profile")));
+
+    }
+    @WithMockUser
+    @Test
+    public void testEditTool() throws Exception{
+        mockMvc.perform(get("/tool/1/edit").with(testUser())).andExpect(content().string(containsString("hammer")));
+    }
+    @WithMockUser
+    @Test
+    public void testDeleteTool() throws Exception{
+        mockMvc.perform(get("/tool/1/delete").with(testUser())).andExpect(content().string(containsString("hammer")));
+    }
+    @WithMockUser
+    @Test
+    public void testRegister() throws Exception{
+        mockMvc.perform(get("/register").with(testUser())).andExpect(content().string(containsString("user name and password")));
+    }
+    @Test
+    public void testAboutUs() throws Exception {
+        mockMvc.perform(get("/aboutus").with(testUser())).andExpect(content().string(containsString("MEET THE TEAM")));
+
+    }
+    @Test
+    public void testDiscover() throws Exception {
+        mockMvc.perform(get("/discover").with(testUser())).andExpect(content().string(containsString("Discover")));
 
     }
 

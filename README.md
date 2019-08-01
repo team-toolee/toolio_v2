@@ -36,7 +36,8 @@
 > On your browser, type localhost:5000 to access the app
 
 > Apolication.properties should look as below and all environemnt variables should configered based on if you are runing application on local machine or using AWS RDS features
-`
+
+```
 # Reference:  https://github.com/pgjdbc/pgjdbc/issues/1102
 #spring.datasource.url=${DATABASE_URL}
 #spring.datasource.username=${DATABASE_USERNAME}
@@ -50,7 +51,8 @@ amazon.s3.endpoint=${S3_ENDPOINT}
 amazon.aws.bucket=${S3_BUCKET}
 server.port=5000
 spring.jpa.hibernate.ddl-auto=update
-#spring.jpa.hibernate.ddl-auto=create-drop `
+#spring.jpa.hibernate.ddl-auto=create-drop 
+```
 
 > After successfully running the application, user would land into the login page as shown below :
   ![App Start](https://github.com/team-toolee/toolio_v2/blob/master/src/main/resources/static/img/homePage.png)

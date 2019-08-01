@@ -4,7 +4,7 @@
 
 ## Summary
 
-> It is application that lets user to allow users to exchange tool. Toolio lets you to rent different hardware tools that are made avialable by thousands of Toolio users just like yourself.
+> It is application that lets users to rent tool. Toolio lets you to rent different hardware tools that are made avialable by thousands of Toolio users just like yourself.
 
 ## Setting Up
 
@@ -34,6 +34,23 @@
 > Enable server port 5000 on application.properties.
 
 > On your browser, type localhost:5000 to access the app
+
+> Apolication.properties should look as below and all environemnt variables should configered based on if you are runing application on local machine or using AWS RDS features
+`
+# Reference:  https://github.com/pgjdbc/pgjdbc/issues/1102
+#spring.datasource.url=${DATABASE_URL}
+#spring.datasource.username=${DATABASE_USERNAME}
+#spring.datasource.password=${DATABASE_PASSWORD}
+#jdbc:postgresql://tooliodb.cblm1jyojdsg.us-east-2.rds.amazonaws.com/tooliodb
+spring.datasource.url=jdbc:postgresql://localhost:5432/tooliodb
+spring.jpa.properties.hibernate.jdbc.lob.non_contextual_creation=true
+amazon.aws.accesskey.s3=${S3_ACCESS_KEY}
+amazon.aws.secretkey.s3=${S3_SECRET_KEY}
+amazon.s3.endpoint=${S3_ENDPOINT}
+amazon.aws.bucket=${S3_BUCKET}
+server.port=5000
+spring.jpa.hibernate.ddl-auto=update
+#spring.jpa.hibernate.ddl-auto=create-drop `
 
 > After successfully running the application, user would land into the login page as shown below :
   ![App Start](https://github.com/team-toolee/toolio_v2/blob/master/src/main/resources/static/img/homePage.png)

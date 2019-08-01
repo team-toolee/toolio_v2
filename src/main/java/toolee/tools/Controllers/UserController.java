@@ -46,6 +46,7 @@ public class UserController {
 
     public String[] cities = {"All","Seattle", "Spokane","Tacoma", "Vancouver","Bellevue", "Kent", "Everett", "Renton", "Federal Way", "Kirkland",
             "Auburn", "Shoreline"};
+    public String[] categories ={ "All", "Home Improvement","Hand Tools","Power Tools","Hardware","Accessories","Floor and Surface","Measuring and Marking","Plumbing","Lawn and Garden","Miscellaneous"};
 
 
     @GetMapping("/profile")
@@ -80,45 +81,11 @@ public class UserController {
         /*
         Add following for ajax search feature
          */
-        Category[] categories = Category.values();
         m.addAttribute("categories",categories);
 
         m.addAttribute("cities",cities);
         return "discover";
     }
-
-    @PostMapping("/discover")
-    public String testing(Model m, Principal p, @RequestParam String city){
-        AppUser loggedInUser = userRepository.findByUsername(p.getName());
-        List<AppUser> usersInCity;
-        if(city.equals("All")){
-            usersInCity = (List)userRepository.findAll();
-        }
-        else{
-            usersInCity= userRepository.findByCity(city);
-        }
-
-        List<Tool> toolsInCity = new ArrayList<>();
-
-        for(AppUser user: usersInCity){
-            if(!user.getUsername().equals(loggedInUser.getUsername())){
-                for(Tool tool: user.getTools()){
-                    toolsInCity.add(tool);
-                }
-            }
-        }
-
-        m.addAttribute("toolsInCity", toolsInCity);
-        m.addAttribute("principal", loggedInUser);
-        /*
-        Add following for ajax search feature
-         */
-        Category[] categories = Category.values();
-        m.addAttribute("categories",categories);
-        m.addAttribute("cities",cities);
-        return "discover";
-    }
-
     @GetMapping("/contact/seller/{toolId}")
     public String contactToolSeller(@PathVariable long toolId, Principal p, Model m){
         AppUser loggedInUser = userRepository.findByUsername(p.getName());

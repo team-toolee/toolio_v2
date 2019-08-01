@@ -6,6 +6,7 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    position:relative;
 }
 
 .site-header {
@@ -56,16 +57,17 @@ main {
 
 footer {
     background-color: #232f3e !important;
+    bottom:0;
+    width:100%;
+    margin-top:40px;
+    position:absolute;
+
 }
 
 .footerContainer{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-}
-
-.footerfix {
-    min-height: calc(100vh - 140px)
 }
 
 .cardText {
@@ -75,9 +77,41 @@ footer {
     color: #9b9b9b;
 }
 
+.userProfile{
+   color:white;
+   font-size: 2rem;
+   background: rgba(19, 35, 47, 0.9);
+    padding: 40px;
+    max-width: 25rem;
+    margin-top: 1.5rem;
+    box-shadow: 0 4px 10px 4px rgba(19, 35, 47, 0.3);
+
+}
+
+.cardImg img{
+    height: 20rem;
+    width: 25rem;
+}
+
+.discoverFilters{
+   color:white;
+   font-size: 2rem;
+   background: rgba(19, 35, 47, 0.9);
+    padding: 40px;
+    max-width: 65rem;
+    margin-top: 1.5rem;
+    box-shadow: 0 4px 10px 4px rgba(19, 35, 47, 0.3);
+}
+
+.cardBtn a{
+      text-align: center;
+      display: block;/**Added This**/
+      margin: 0 auto; /**Added This**/
+}
+
 .logoImage{
-    height: 60px;
-    width: 60px;
+    height: 5.2rem;
+    width: 14rem;
     margin-top: 2px;
     margin-left: 10px;
 }
@@ -116,4 +150,8 @@ text-align: center;
 
    #williamsImage{
     transform: rotate(90deg);
+   }
+
+   .minHeight{
+        padding-bottom:15%;
    }

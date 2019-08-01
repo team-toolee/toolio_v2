@@ -1,6 +1,6 @@
 # Toolio
 
-> Coming Soon [put the logo]
+![Homepage](./src/static/img/pliers.jpg)
 
 ## Summary
 > Coming Soon [Summary of application]

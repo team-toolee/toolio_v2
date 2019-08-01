@@ -12,36 +12,44 @@
     </head>
     <body>
         <div th:replace="fragments/header :: header"></div>
-        <h3>Are you sure want to delete following tool ?</h3>
-        <form action="/tool/{id}/delete" method="post">
-            <!--to pass the input across the past page-->
-            <input th:value="${delTool.id}" type="hidden" name="id" >
-            <div class="form-group">
-                <label for="toolName">Tool Name</label>
-                <input type="text" th:value="${delTool.name}"  class= "form-control" name="name" id="toolName" readonly>
+        <div class="container row minHeight">
+            <div class="col s6 m4 l4 cardImg">
+                <header class="site-header">
+                    <h3>Sure?</h3>
+                </header>
+                <fieldset>
+                    <form action="/tool/{id}/delete" method="post">
+                        <!--to pass the input across the past page-->
+                        <input th:value="${delTool.id}" type="hidden" name="id" >
+                        <div class="form-group">
+                            <label for="toolName">Tool Name</label>
+                            <input type="text" th:value="${delTool.name}"  class= "form-control" name="name" id="toolName" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="toolImg">Tool Image</label>
+                            <img id="toolImg" class="card-img-top" th:src="${delTool.imageUrl}" alt="Card image" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="toolPrice">Price</label>
+                            <input type="text" th:value="${delTool.price}"  class= "form-control" name="name" id="toolPrice" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="toolStatus">Status</label>
+                            <input type="text" th:value="${delTool.status}"  class= "form-control" name="name" id="toolStatus" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="toolDescription">Description</label>
+                            <input type="text" th:value="${delTool.description}"  class= "form-control" name="name" id="toolDescription" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="toolCategory">Category</label>
+                            <input type="text" th:value="${delTool.category.getCategoryName()}"  class= "form-control" name="name" id="toolCategory" readonly>
+                        </div>
+                        <button type="submit" class="btn red darken-4"> Delete </button>
+                    </form>
+                </fieldset>
             </div>
-            <div class="form-group">
-                <label for="toolImg">Tool Image</label>
-                <img id="toolImg" class="card-img-top" th:src="${delTool.imageUrl}" alt="Card image" readonly>
-            </div>
-            <div class="form-group">
-                <label for="toolPrice">Price</label>
-                <input type="text" th:value="${delTool.price}"  class= "form-control" name="name" id="toolPrice" readonly>
-            </div>
-            <div class="form-group">
-                <label for="toolStatus">Status</label>
-                <input type="text" th:value="${delTool.status}"  class= "form-control" name="name" id="toolStatus" readonly>
-            </div>
-            <div class="form-group">
-                <label for="toolDescription">Description</label>
-                <input type="text" th:value="${delTool.description}"  class= "form-control" name="name" id="toolDescription" readonly>
-            </div>
-            <div class="form-group">
-                <label for="toolCategory">Category</label>
-                <input type="text" th:value="${delTool.category.getCategoryName()}"  class= "form-control" name="name" id="toolCategory" readonly>
-            </div>
-            <button type="submit" class="btn btn-danger"> Delete </button>
-        </form>
+        </div>
         <div th:replace="fragments/footer :: footer"></div>
         <script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>

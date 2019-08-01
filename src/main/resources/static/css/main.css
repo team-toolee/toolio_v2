@@ -58,6 +58,12 @@ footer {
     background-color: #232f3e !important;
 }
 
+.footerContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
 .footerfix {
     min-height: calc(100vh - 140px)
 }

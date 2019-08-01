@@ -81,9 +81,11 @@ spring.jpa.hibernate.ddl-auto=update
  
 ## Architectural Design
    * Model View Controller design
+   
     ![MVC](https://github.com/team-int-finance/kid-doh/blob/master/src/main/resources/static/images/mvc.png)
 
    * Data base design 
+   
     ![Data base design](https://github.com/team-toolee/toolio_v2/blob/master/src/main/resources/static/img/db.png)
 
 ## Technologies Used

@@ -149,7 +149,7 @@ public class UserController {
         Map<String, MessageAttributeValue> smsAttributes =
                 new HashMap<>();
         //<set SMS attributes>
-        sendSMSMessage(snsClient, message, "+1"+seller.getPhoneNumber(), smsAttributes);
+        sendSMSMessage(snsClient, message, "+1" + seller.getPhoneNumber(), smsAttributes);
     }
 
     public static void sendSMSMessage(AmazonSNSClient snsClient, String message,

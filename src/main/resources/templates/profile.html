@@ -15,7 +15,7 @@
 </head>
 <body>
 <div th:replace="fragments/header :: header"></div>
-<div class="row container">
+<div class="row container minHeight">
 
     <div class="col s12 m3 l3">
 
@@ -54,6 +54,7 @@
                         <div class="card-content">
                             <span class="card-title">Name: <span th:text="${tool.name}"></span></span>
                             <p>Description: </br><span th:text="${tool.description}" class="cardText"></span></p>
+                            <p>Price: </br><span th:text="${tool.price}" class="cardText"></span></p>
                             <p>Status: </br><span th:text="${tool.status}" class="cardText"></span></p>
                         </div>
                     </div>

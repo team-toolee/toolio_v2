@@ -1,0 +1,20 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      java: openjdk8
+    commands:
+      - echo Entering install phase...
+      - echo Nothing to do now
+  build:
+    commands:
+      - echo Build started on `date`
+      - ./gradlew build
+      - ./gradlew bootJar
+artifacts:
+  type: zip
+  files:
+    - 'build/libs/*.jar'
+  name: build/libs/application.jar
+  discard-paths: yes

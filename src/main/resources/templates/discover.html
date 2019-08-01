@@ -13,7 +13,8 @@
     </head>
     <body>
         <div th:replace="fragments/header :: header"></div>
-        <div class="container">
+
+        <div class="container minHeight">
             <div class="row">
             <header class="site-header">
                 <h3>Filters </h3>
@@ -32,28 +33,29 @@
                     </select>
                 </div>
             </fieldset>
-
         </div>
-            <div class="row">
+            <div class="row ">
                 <header class="site-header">
                     <h4>Discover Tools</h4>
                 </header>
-                <div th:each="tool : ${toolsInCity}">
-                    <div class="col s12 m4 l4">
-                        <div id="allTools" class="card cardBtn" th:target="${tool.category.getCategoryName()}" th:city="${tool.appUser.city}">
-                            <div class="card-image">
-                                <img th:src="${tool.imageUrl}" alt="Card image">
+                <div th:if="${toolsInCity}">
+                    <div th:each="tool : ${toolsInCity}">
+                        <div class="col s12 m4 l4">
+                            <div id="allTools" class="card cardBtn" th:target="${tool.category.getCategoryName()}" th:city="${tool.appUser.city}">
+                                <div class="card-image">
+                                    <img th:src="${tool.imageUrl}" alt="Card image">
+                                </div>
+                                <div class="card-content cardImg">
+                                    <p class="card-title"><span th:text="${tool.name}"></span></p>
+                                    <p th:text="${tool.description}"></p>
+                                    <p th:text="${tool.status}"></p>
+                                    <p>Category: <span id="toolCategory" th:text="${tool.category.getCategoryName()}"></span></p>
+                                </div>
+                                <a class="waves-effect waves-light btn modal-trigger" th:href="@{'/contact/seller/'+${tool.id}}">Contact Owner</a>
                             </div>
-                            <div class="card-content cardImg">
-                                <p class="card-title"><span th:text="${tool.name}"></span></p>
-                                <p th:text="${tool.description}"></p>
-                                <p th:text="${tool.status}"></p>
-                                <p>Category: <span id="toolCategory" th:text="${tool.category.getCategoryName()}"></span></p>
-                            </div>
-                            <a class="waves-effect waves-light btn modal-trigger" th:href="@{'/contact/seller/'+${tool.id}}">Contact Owner</a>
                         </div>
                     </div>
-                 </div>
+                </div>
             </div>
         </div>
         <div th:replace="fragments/footer :: footer"></div>

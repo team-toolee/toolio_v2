@@ -1,6 +1,6 @@
 # Toolio
 
-![Homepage](./src/static/img/pliers.jpg)
+![Homepage](https://github.com/team-toolee/toolio_v2/blob/master/src/main/resources/static/img/logo.png)
 
 ## Summary
 > Coming Soon [Summary of application]

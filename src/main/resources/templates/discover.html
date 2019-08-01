@@ -21,6 +21,14 @@
             <select id="category"class="browser-default" name="category">
                 <option th:each ="category: ${categories}" th:text="${category.getCategoryName()}" th:value="${category.getCategoryName()}"></option>
             </select>
+            <form method="post" action="/discover">
+                <label>Change Location</label>
+                <select id="cities"class="browser-default" name="city">
+                    <option th:each ="city: ${cities}" th:text="${city}" th:value="${city}"></option>
+                </select>
+                <button type="submit" class="btn btn-primary">Select</button>
+            </form>
+
         </div>
 
         <div  class="col s12 m8 l8">

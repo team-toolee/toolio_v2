@@ -65,7 +65,7 @@ public class UserController {
     @GetMapping("/discover")
     public String testing(Model m, Principal p){
         AppUser loggedInUser = userRepository.findByUsername(p.getName());
-        List<AppUser> usersInCity = userRepository.findByCity(loggedInUser.getCity());
+        List<AppUser> usersInCity = (List)userRepository.findAll();
         List<Tool> toolsInCity = new ArrayList<>();
 
         for(AppUser user: usersInCity){

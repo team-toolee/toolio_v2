@@ -6,6 +6,14 @@
 
 > It is application that lets users to rent tool. Toolio lets you to rent different hardware tools that are made avialable by thousands of Toolio users just like yourself.
 
+## Reference
+
+> Login page: https://codepen.io/login
+
+> Spring Application: https://github.com/pgjdbc/pgjdbc/issues/1102
+
+> Materialize: https://materializecss.com/mobile.html
+
 ## Setting Up
 
  > How to get and set up our app:

@@ -6,6 +6,13 @@
 
 > It is application that lets users to rent tool. Toolio lets you to rent different hardware tools that are made avialable by thousands of Toolio users just like yourself.
 
+## Deployed app:
+
+> Domain: http://www.leaseyourtools.com
+
+> EBstalk: http://toolio.us-east-2.elasticbeanstalk.com/login
+
+
 ## Reference
 
 > Login page: https://codepen.io/login
@@ -13,6 +20,15 @@
 > Spring Application: https://github.com/pgjdbc/pgjdbc/issues/1102
 
 > Materialize: https://materializecss.com/mobile.html
+
+> https://github.com/chidrome/recipes-client-side/blob/master/src/scss/_module.scss
+
+> https://github.com/codefellows/seattle-java-401d4/blob/master/class-16/demo/dinosaurs/src/main/resources/templates/error.html
+
+> https://raw.githubusercontent.com/team-char/pet-expenses-tracker/develop/src/main/resources/templates/error.html
+
+> https://stackoverflow.com/questions/8389150/java-enum-elements-with-spaces
+
 
 ## Setting Up
 
